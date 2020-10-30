@@ -49,7 +49,7 @@ Deploying website on AWS, using AWS EFS service for storing the webpages, and au
       }
       
  
-![Key Pair](https://github.com/surinder2000/deploy-web-on-aws-using-terraform/blob/master/job11.png)
+![Key Pair](https://github.com/surinder2000/config-efs-and-store-webpages-using-terraform/blob/master/screenshots/keypair.png)
 
 * Code for creating a security group and allow port no. 2049 (allow NFS), 80 (allow http) and 22 (allow ssh)
 
@@ -91,7 +91,7 @@ Deploying website on AWS, using AWS EFS service for storing the webpages, and au
           }
       }
 
-![Security Group](https://github.com/surinder2000/deploy-web-on-aws-using-terraform/blob/master/job11.png)
+![Security Group](https://github.com/surinder2000/config-efs-and-store-webpages-using-terraform/blob/master/screenshots/security%20group.png)
 
 * Code for launching EC2 instance and configure apache webserver
 
@@ -127,7 +127,7 @@ Deploying website on AWS, using AWS EFS service for storing the webpages, and au
           }
       }
 
-![EC2 Instance](https://github.com/surinder2000/deploy-web-on-aws-using-terraform/blob/master/job11.png)
+![EC2 Instance](https://github.com/surinder2000/config-efs-and-store-webpages-using-terraform/blob/master/screenshots/Ec2%20instance.png)
 
 * Code for creating EFS filesystem
 
@@ -139,7 +139,7 @@ Deploying website on AWS, using AWS EFS service for storing the webpages, and au
         }
       }
       
-![EFS](https://github.com/surinder2000/deploy-web-on-aws-using-terraform/blob/master/job11.png)
+![EFS](https://github.com/surinder2000/config-efs-and-store-webpages-using-terraform/blob/master/screenshots/efs.png)
 
 * Code for attaching EFS to instance
 
@@ -192,7 +192,7 @@ Deploying website on AWS, using AWS EFS service for storing the webpages, and au
           s3_origin_id = "S3-surin-bucket"
       }
       
-![S3 Bucket](https://github.com/surinder2000/deploy-web-on-aws-using-terraform/blob/master/job11.png)
+![S3 Bucket](https://github.com/surinder2000/config-efs-and-store-webpages-using-terraform/blob/master/screenshots/s3bucket.png)
 
 * Code for uploading static data of webpages like images to S3 bucket
 
@@ -213,9 +213,9 @@ Deploying website on AWS, using AWS EFS service for storing the webpages, and au
             comment = "access-identity-surin-bucket"
         }
         
-![Origin Access Identity](https://github.com/surinder2000/deploy-web-on-aws-using-terraform/blob/master/job11.png)
+![Origin Access Identity](https://github.com/surinder2000/config-efs-and-store-webpages-using-terraform/blob/master/screenshots/originaccessidentity.png)
 
-* Code or creating cloudfront distribution for S3 bucket
+* Code for creating cloudfront distribution for S3 bucket
 
         resource "aws_cloudfront_distribution" "s3Distribution" {
             depends_on = [
@@ -269,6 +269,8 @@ Deploying website on AWS, using AWS EFS service for storing the webpages, and au
                 cloudfront_default_certificate = true
             }
         }
+        
+![CloudFront Distribution](https://github.com/surinder2000/config-efs-and-store-webpages-using-terraform/blob/master/screenshots/cloudfrontdistribution.png)
 
 * Code for creating bucket access policy
 
